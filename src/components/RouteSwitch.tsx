@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
-import Catalog from './Catalog';
+import Products from './Products';
 import Cart from './Cart';
 
 function RouteSwitch() {
@@ -9,7 +9,7 @@ function RouteSwitch() {
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='/products' element={<Catalog />} />
+				<Route path='/products' element={<Products />} />
 				<Route path='/cart' element={<Cart />} />
 			</Routes>
 		</BrowserRouter>

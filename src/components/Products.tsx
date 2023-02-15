@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Catalog() {
+function Products() {
 	return (
-		<div id='catalog'>
+		<div id='products'>
 			<ul>
 				<li>Item 1</li>
 				<li>Item 2</li>
@@ -12,4 +12,4 @@ function Catalog() {
 	);
 }
 
-export default Catalog;
+export default Products;
