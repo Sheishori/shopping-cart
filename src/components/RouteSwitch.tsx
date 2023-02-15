@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Catalog from './components/Catalog';
+import Home from './Home';
+import Catalog from './Catalog';
 
 function RouteSwitch() {
 	return (
