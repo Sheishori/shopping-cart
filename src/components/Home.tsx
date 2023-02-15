@@ -1,7 +1,12 @@
 import React from 'react';
 
-function Main() {
-	return <main></main>;
+function Home() {
+	return (
+		<main>
+			<h2>Welcome</h2>
+			<button>Shop now</button>
+		</main>
+	);
 }
 
-export default Main;
+export default Home;
