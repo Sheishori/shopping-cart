@@ -8,7 +8,9 @@ function App() {
 	return (
 		<div id='App'>
 			<Header />
-			<RouteSwitch />
+			<main>
+				<RouteSwitch />
+			</main>
 			<Footer />
 		</div>
 	);

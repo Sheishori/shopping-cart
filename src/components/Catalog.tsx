@@ -2,13 +2,13 @@ import React from 'react';
 
 function Catalog() {
 	return (
-		<main>
+		<div id='catalog'>
 			<ul>
 				<li>Item 1</li>
 				<li>Item 2</li>
 				<li>Item 3</li>
 			</ul>
-		</main>
+		</div>
 	);
 }
 
