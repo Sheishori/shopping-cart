@@ -29,4 +29,16 @@ describe('setProducts module', () => {
 			expect(products).toEqual(expected);
 		});
 	});
+
+	it('returns an error message if fetching failed', async () => {
+		const expected = 'Fetching failed';
+
+		async function fetch() {
+			return 'Fetching failed';
+		}
+
+		return setProducts(fetch).then((data) => {
+			expect(data).toEqual(expected);
+		});
+	});
 });
