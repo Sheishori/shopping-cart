@@ -1,10 +1,9 @@
 async function fetchFromAPI() {
 	try {
-		const fetchProducts = await fetch(
-			'https://api.storerestapi.com/products'
-		).then((response) => response.json());
-		if (fetchProducts.status === 200) return fetchProducts.data;
-		else return { errorMessage: fetchProducts.message };
+		const fetchProducts = await fetch('https://fakestoreapi.com/products').then(
+			(response) => response.json()
+		);
+		return fetchProducts;
 	} catch (error) {
 		console.log(error);
 	}

@@ -7,11 +7,11 @@ function Products({ set = setProductData }) {
 	const dispatch = useDispatch();
 	const products = useSelector((state: { products: [] }) => state.products);
 	type Product = {
-		readonly _id: '';
+		readonly id: number;
 		title: '';
 		price: number;
-		category: { name: '' };
 		description: '';
+		category: '';
 		image: '';
 	};
 
@@ -27,8 +27,8 @@ function Products({ set = setProductData }) {
 		<div id='products'>
 			<ul>
 				{products.map((item: Product) => (
-					<li key={item._id}>
-						<Link to={`/products/${item._id}`}>{item.title}</Link>
+					<li key={item.id}>
+						<Link to={`/products/${item.id}`}>{item.title}</Link>
 					</li>
 				))}
 			</ul>

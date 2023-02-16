@@ -19,22 +19,10 @@ describe('setProducts module', () => {
 		async function fetch() {
 			return [
 				{
-					_id: '61ab420c0f34753bcedfa787',
+					id: '61ab420c0f34753bcedfa787',
 					title: 'special cotton shirt for men',
 				},
 			];
-		}
-
-		return actions.setProductData(fetch).then((data) => {
-			expect(data).toEqual(expected);
-		});
-	});
-
-	it('returns an error message if fetching failed', async () => {
-		const expected = { errorMessage: 'Fetching failed' };
-
-		async function fetch() {
-			return { errorMessage: 'Fetching failed' };
 		}
 
 		return actions.setProductData(fetch).then((data) => {
