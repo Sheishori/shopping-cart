@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import UserEvent from '@testing-library/user-event';
-import setProducts from '../components/state/setProducts';
+import * as actions from '../components/state/actions';
 import { act } from 'react-dom/test-utils';
 
 describe('setProducts module', () => {
@@ -25,7 +25,7 @@ describe('setProducts module', () => {
 			];
 		}
 
-		return setProducts(fetch).then((data) => {
+		return actions.setProducts(fetch).then((data) => {
 			expect(data).toEqual(expected);
 		});
 	});
@@ -37,7 +37,7 @@ describe('setProducts module', () => {
 			return 'Fetching failed';
 		}
 
-		return setProducts(fetch).then((data) => {
+		return actions.setProducts(fetch).then((data) => {
 			expect(data).toEqual(expected);
 		});
 	});
