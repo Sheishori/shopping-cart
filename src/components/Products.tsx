@@ -2,18 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setProductData } from './state/actions';
+import { Product } from './state/types';
 
 function Products({ set = setProductData }) {
 	const dispatch = useDispatch();
 	const products = useSelector((state: { products: [] }) => state.products);
-	type Product = {
-		readonly id: number;
-		title: '';
-		price: number;
-		description: '';
-		category: '';
-		image: '';
-	};
 
 	useEffect(() => {
 		async function setProducts() {
