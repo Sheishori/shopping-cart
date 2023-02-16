@@ -4,6 +4,15 @@ import { setProductData } from './state/actions';
 
 function Products({ set = setProductData }) {
 	const dispatch = useDispatch();
+	const products = useSelector((state: { products: [] }) => state.products);
+	type Product = {
+		readonly _id: '';
+		title: '';
+		price: number;
+		category: { name: '' };
+		description: '';
+		image: '';
+	};
 
 	useEffect(() => {
 		async function setProducts() {
@@ -16,9 +25,9 @@ function Products({ set = setProductData }) {
 	return (
 		<div id='products'>
 			<ul>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
+				{products.map((item: Product) => (
+					<li key={item._id}>{item.title}</li>
+				))}
 			</ul>
 		</div>
 	);
