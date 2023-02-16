@@ -31,10 +31,10 @@ describe('setProducts module', () => {
 	});
 
 	it('returns an error message if fetching failed', async () => {
-		const expected = 'Fetching failed';
+		const expected = { errorMessage: 'Fetching failed' };
 
 		async function fetch() {
-			return 'Fetching failed';
+			return { errorMessage: 'Fetching failed' };
 		}
 
 		return actions.setProductData(fetch).then((data) => {
