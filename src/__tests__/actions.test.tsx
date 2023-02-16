@@ -25,7 +25,7 @@ describe('setProducts module', () => {
 			];
 		}
 
-		return actions.setProducts(fetch).then((data) => {
+		return actions.setProductData(fetch).then((data) => {
 			expect(data).toEqual(expected);
 		});
 	});
@@ -37,7 +37,7 @@ describe('setProducts module', () => {
 			return 'Fetching failed';
 		}
 
-		return actions.setProducts(fetch).then((data) => {
+		return actions.setProductData(fetch).then((data) => {
 			expect(data).toEqual(expected);
 		});
 	});

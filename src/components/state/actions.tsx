@@ -1,8 +1,7 @@
 import fetchFromAPI from '../modules/fetchFromAPI';
 
-export async function setProducts(fetch = fetchFromAPI) {
+export async function setProductData(fetch = fetchFromAPI) {
 	const data = await fetch();
-	if (typeof data === 'string') return data;
 
 	const setProducts = {
 		type: 'setProducts',
