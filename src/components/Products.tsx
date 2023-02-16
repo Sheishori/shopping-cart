@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setProductData } from './state/actions';
 
 function Products({ set = setProductData }) {
@@ -26,7 +27,9 @@ function Products({ set = setProductData }) {
 		<div id='products'>
 			<ul>
 				{products.map((item: Product) => (
-					<li key={item._id}>{item.title}</li>
+					<li key={item._id}>
+						<Link to={`/products/${item._id}`}>{item.title}</Link>
+					</li>
 				))}
 			</ul>
 		</div>
