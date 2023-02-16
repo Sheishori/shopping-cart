@@ -1,4 +1,4 @@
-async function getProductData() {
+async function fetchFromAPI() {
 	try {
 		const fetchProducts = await fetch(
 			'https://api.storerestapi.com/products'
@@ -10,4 +10,4 @@ async function getProductData() {
 	}
 }
 
-export default getProductData;
+export default fetchFromAPI;
