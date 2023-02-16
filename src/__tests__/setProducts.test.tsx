@@ -25,8 +25,8 @@ describe('setProducts module', () => {
 			];
 		}
 
-		return setProducts(fetch).then((products) => {
-			expect(products).toEqual(expected);
+		return setProducts(fetch).then((data) => {
+			expect(data).toEqual(expected);
 		});
 	});
 
