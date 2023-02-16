@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProductData } from './state/actions';
 
-function Products() {
+function Products({ set = setProductData }) {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		async function setProducts() {
+			const productsAction = await set();
+			dispatch(productsAction);
+		}
+		setProducts();
+	}, []);
+
 	return (
 		<div id='products'>
 			<ul>
