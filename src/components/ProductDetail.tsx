@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchOne } from './modules/fetchFromAPI';
 import { Product } from './state/types';
 
@@ -42,7 +42,14 @@ function ProductDetail() {
 		}
 	}
 
-	return <div id='product'>{init(initializing, productDetail)}</div>;
+	return (
+		<div id='product'>
+			{init(initializing, productDetail)}
+			<Link to='/products'>
+				<button>Back</button>
+			</Link>
+		</div>
+	);
 }
 
 export default ProductDetail;
