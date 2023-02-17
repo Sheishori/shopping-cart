@@ -9,7 +9,10 @@
 	justify-content: center;
 	background-image: url('/src/img/home.jpg');
 	background-size: cover;
-	padding: 20rem;
+}
+
+#home .left {
+	padding-left: max(17%, 2rem);
 }
 
 #home h2 {
