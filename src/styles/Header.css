@@ -1,5 +1,14 @@
 header {
+	position: sticky;
+	top: 0px;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
+	padding: 1rem;
+	background-color: rgba(7, 5, 22, 0.3);
+}
+
+header a {
+	text-decoration: none;
+	color: black;
 }
