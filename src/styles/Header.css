@@ -4,8 +4,10 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	padding: 1rem;
+	padding: 0.8rem;
 	background-color: rgba(7, 5, 22, 0.3);
+	font-family: 'Playfair Display', serif;
+	font-size: 1.2rem;
 }
 
 header a {
