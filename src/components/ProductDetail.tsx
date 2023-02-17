@@ -43,12 +43,12 @@ function ProductDetail() {
 	}
 
 	return (
-		<div id='product'>
+		<main id='product'>
 			{init(initializing, productDetail)}
 			<Link to='/products'>
 				<button>Back</button>
 			</Link>
-		</div>
+		</main>
 	);
 }
 

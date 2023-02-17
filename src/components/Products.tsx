@@ -34,7 +34,7 @@ function Products({ set = setProductData }) {
 		}
 	}
 
-	return <div id='products'>{init(initializing, products)}</div>;
+	return <main id='products'>{init(initializing, products)}</main>;
 }
 
 export default Products;

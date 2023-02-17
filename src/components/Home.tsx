@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Home.css';
 
 function Home() {
 	return (
-		<div id='home'>
+		<main id='home'>
 			<h2>Welcome</h2>
 			<Link to='/products'>
 				<button>Shop now</button>
 			</Link>
-		</div>
+		</main>
 	);
 }
 

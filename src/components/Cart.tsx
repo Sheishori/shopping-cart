@@ -2,9 +2,9 @@ import React from 'react';
 
 function Cart() {
 	return (
-		<div id='cart'>
+		<main id='cart'>
 			<h3>Cart:</h3>
-		</div>
+		</main>
 	);
 }
 
