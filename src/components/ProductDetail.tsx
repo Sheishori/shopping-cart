@@ -11,12 +11,11 @@ function ProductDetail() {
 	const [productDetail, setproductDetail] = useState({});
 
 	useEffect(() => {
-		async function setProduct(product: any, productId: number) {
+		async function setProduct(product: Product | undefined, productId: number) {
 			if (product === undefined) {
-				const fetch = await fetchOne(productId);
+				const fetch: Product = await fetchOne(productId);
 				product = fetch;
 			}
-			console.log(product);
 			setproductDetail(product);
 		}
 
