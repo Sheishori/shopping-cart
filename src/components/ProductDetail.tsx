@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchOne } from './modules/fetchFromAPI';
 import { Product } from './state/types';
+import '../styles/ProductDetail.css';
 
 function ProductDetail() {
 	const products = useSelector((state: { products: [] }) => state.products);
@@ -29,11 +30,11 @@ function ProductDetail() {
 		} else {
 			return (
 				<div className='details'>
-					<h3>{product.title}</h3>
 					<div className='image'>
 						<img src={product.image} alt={product.title} />
 					</div>
 					<div className='info'>
+						<h3>{product.title}</h3>
 						<div className='desc'>{product.description}</div>
 						<div className='price'>${product.price}</div>
 					</div>
@@ -45,7 +46,7 @@ function ProductDetail() {
 	return (
 		<main id='product'>
 			{init(initializing, productDetail)}
-			<Link to='/products'>
+			<Link className='back' to='/products'>
 				<button>Back</button>
 			</Link>
 		</main>
