@@ -1,0 +1,18 @@
+#cart {
+	justify-self: center;
+	width: min(95%, 65rem);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem;
+}
+
+#cart .contents {
+	display: flex;
+}
+
+#cart .back {
+	width: 10rem;
+	margin-top: auto;
+	align-self: flex-start;
+}
