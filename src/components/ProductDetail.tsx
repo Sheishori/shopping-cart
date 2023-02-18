@@ -27,7 +27,8 @@ function ProductDetail() {
 
 	function handleChange(event: any) {
 		const newValue = Number(event.target.value);
-		setAmount(newValue);
+		if (newValue === 0) setAmount(1);
+		if (newValue > 0) setAmount(newValue);
 	}
 
 	function increment() {
@@ -35,7 +36,7 @@ function ProductDetail() {
 	}
 
 	function decrement() {
-		if (amount > 0) setAmount(amount - 1);
+		if (amount > 1) setAmount(amount - 1);
 	}
 
 	function init(initializing: boolean, product: any) {
@@ -57,11 +58,11 @@ function ProductDetail() {
 								-
 							</button>
 							<input
-								type='number'
+								type='text'
 								name='amount'
 								id='amount'
-								pattern='[0-9]'
-								min='0'
+								pattern='[1-9]'
+								min='1'
 								value={amount}
 								onChange={handleChange}
 							/>
