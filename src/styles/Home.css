@@ -14,10 +14,10 @@
 }
 
 #home .left {
-	padding-left: max(10%, 1rem);
+	padding-left: max(13%, 1rem);
 	text-align: start;
-	margin: 2rem;
-	padding-bottom: 4rem;
+	margin-right: 3rem;
+	padding-bottom: 3rem;
 }
 
 #home h2 {
@@ -34,6 +34,7 @@
 	color: white;
 	background-color: black;
 	border: 1px solid white;
+	margin-top: 1rem;
 }
 
 #home button:hover::before {
