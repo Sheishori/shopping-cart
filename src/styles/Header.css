@@ -2,9 +2,10 @@ header {
 	position: sticky;
 	z-index: 1;
 	top: 0px;
-	display: flex;
+	display: grid;
+	grid-template-columns: min(40%, 40rem) min(60%, 20rem);
+	justify-content: center;
 	align-items: center;
-	justify-content: space-evenly;
 	padding: 0.8rem;
 	background-color: rgba(7, 5, 22, 0.3);
 	font-family: 'Playfair Display', serif;

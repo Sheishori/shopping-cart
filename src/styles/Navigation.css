@@ -1,7 +1,7 @@
 #nav ul {
 	list-style: none;
 	display: flex;
-	gap: 5rem;
+	justify-content: space-between;
 }
 
 #nav a {
