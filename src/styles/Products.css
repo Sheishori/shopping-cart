@@ -1,4 +1,17 @@
 #products ul {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	grid-template-columns: repeat(auto-fit, 20rem);
+	justify-content: center;
+	list-style: none;
+	gap: 2rem min(5rem, 3%);
+	padding: 2rem min(10rem, 3%);
+}
+
+#products li {
+	height: 25rem;
+	background-color: white;
+}
+
+#products img {
+	width: 200px;
 }
