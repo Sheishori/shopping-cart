@@ -38,9 +38,10 @@ function ProductDetail() {
 						<div className='desc'>{product.description}</div>
 						<div className='price'>${product.price}</div>
 						<div className='amount'>
-							<button className='increment'>+</button>
-							<input type='phone' name='amount' id='amount' defaultValue={1} />
+							{' '}
 							<button className='decrement'>-</button>
+							<input type='phone' name='amount' id='amount' defaultValue={1} />
+							<button className='increment'>+</button>
 						</div>
 						<button className='add'>Add to cart</button>
 					</div>
