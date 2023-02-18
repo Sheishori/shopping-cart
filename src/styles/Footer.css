@@ -76,10 +76,10 @@ footer .copyright a {
 
 #newsletter button {
 	width: 10rem;
-	font-family: 'Poppins', Roboto, sans-serif;
 	background-color: hsl(208, 44%, 83%);
-	border: 1px solid white;
-	padding: 0.1rem;
+	color: black;
+	text-transform: capitalize;
+	font-size: 0.9rem;
 }
 
 #newsletter button:hover {

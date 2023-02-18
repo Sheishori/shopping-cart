@@ -27,13 +27,6 @@
 
 #home button {
 	width: 12rem;
-	height: 2rem;
-	text-transform: uppercase;
-	font-family: 'Poppins', Roboto, sans-serif;
-	font-size: 1rem;
-	color: white;
-	background-color: black;
-	border: 1px solid white;
 	margin-top: 1rem;
 }
 
