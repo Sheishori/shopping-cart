@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setProductData } from './state/actions';
 import { Product } from './state/types';
+import '../styles/Products.css';
 
 function Products({ set = setProductData }) {
 	const dispatch = useDispatch();
