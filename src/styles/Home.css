@@ -9,6 +9,7 @@
 	justify-content: center;
 	background-image: url('/src/img/home.jpg');
 	background-size: cover;
+	background-position: center;
 }
 
 #home .left {
