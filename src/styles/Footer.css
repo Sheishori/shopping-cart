@@ -1,18 +1,90 @@
 footer {
 	z-index: 1;
+	font-size: 0.9rem;
+	font-weight: 300;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	padding: 0.5rem;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Poppins', Roboto, sans-serif;
 	margin-top: auto;
+	color: white;
+	background-color: rgb(30, 30, 30);
 }
 
-footer div {
+footer .info {
+	width: min(90%, 60rem);
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: repeat(3, 1fr);
+	justify-content: space-evenly;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+footer .info h4 {
+	font-weight: 600;
+	margin-bottom: 1rem;
+}
+
+footer .info div {
+	display: flex;
+	flex-direction: column;
+}
+
+footer a {
+	color: white;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+footer .copyright {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.8rem;
+	background-color: black;
+}
+
+footer .copyright div {
 	margin: 0 0.5rem;
 	margin-top: -0.2rem;
 }
 
-footer a {
+footer .copyright a {
 	display: contents;
+}
+
+#newsletter {
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+}
+
+#newsletter input {
+	width: 100%;
+	font-size: 1rem;
+	background-color: transparent;
+	border: none;
+	color: white;
+	border-bottom: 1px solid white;
+	margin: 0.8rem;
+}
+
+#newsletter button {
+	width: 10rem;
+	font-family: 'Poppins', Roboto, sans-serif;
+	background-color: hsl(208, 44%, 83%);
+	border: 1px solid white;
+	padding: 0.1rem;
+}
+
+#newsletter button:hover {
+	background-color: hsl(208, 44%, 73%);
+}
+
+#newsletter button:active {
+	background-color: hsl(208, 44%, 53%);
 }
