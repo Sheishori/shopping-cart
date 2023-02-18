@@ -17,8 +17,8 @@ footer .info {
 	grid-auto-flow: column;
 	grid-template-columns: repeat(3, 1fr);
 	justify-content: space-evenly;
-	margin-top: 1rem;
-	margin-bottom: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 2rem;
 }
 
 footer .info h4 {
