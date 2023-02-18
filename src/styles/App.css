@@ -27,3 +27,8 @@ button {
 	background-color: black;
 	padding: 0.1rem;
 }
+
+button:active {
+	background-color: rgb(75, 75, 75);
+	transform: translateY(1px);
+}
