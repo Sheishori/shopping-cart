@@ -14,10 +14,10 @@
 }
 
 #home .left {
-	padding-left: max(13%, 1rem);
+	padding-left: max(18%, 8rem);
 	text-align: start;
 	margin-right: 3rem;
-	padding-bottom: 3rem;
+	padding-bottom: 5rem;
 }
 
 #home h2 {

@@ -6,8 +6,7 @@ function Home() {
 	return (
 		<main id='home'>
 			<div className='left'>
-				<h2>Welcome to Manics</h2>
-				<p>Everything you need just a couple clicks away</p>
+				<h2>Welcome</h2>
 				<Link to='/products'>
 					<button>Shop now</button>
 				</Link>
