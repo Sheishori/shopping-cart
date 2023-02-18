@@ -12,11 +12,11 @@ export async function setProductData(fetch = fetchAll) {
 	return setProducts;
 }
 
-export function addProductToCart(id: number, quantity: number) {
+export function addProductToCart(product: any, quantity: number) {
 	const addProduct = {
 		type: ADD_TO_CART,
 		payload: {
-			id: id,
+			id: product.id,
 			quantity: quantity,
 		},
 	};

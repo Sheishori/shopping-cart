@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchOne } from './modules/fetchFromAPI';
 import { Product } from './state/types';
+import { addProductToCart } from './state/actions';
 import '../styles/ProductDetail.css';
 
 function ProductDetail() {
+	const dispatch = useDispatch();
 	const products = useSelector((state: { products: [] }) => state.products);
 	const productId = Number(useParams().id);
 	let product = products.find((item: Product) => item.id === productId);
@@ -39,6 +41,11 @@ function ProductDetail() {
 		if (amount > 1) setAmount(amount - 1);
 	}
 
+	function addToCart() {
+		const cartItem = addProductToCart(productDetail, amount);
+		dispatch(cartItem);
+	}
+
 	function init(initializing: boolean, product: any) {
 		if (initializing) {
 			return <div>Loading...</div>;
@@ -70,7 +77,9 @@ function ProductDetail() {
 								+
 							</button>
 						</div>
-						<button className='add'>Add to cart</button>
+						<button className='add' onClick={addToCart}>
+							Add to cart
+						</button>
 					</div>
 				</div>
 			);
