@@ -7,7 +7,7 @@ function Header() {
 	return (
 		<header>
 			<Link to='/'>
-				<h1>Store</h1>
+				<h1>Manics</h1>
 			</Link>
 			<Navigation />
 		</header>

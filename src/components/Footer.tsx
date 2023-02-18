@@ -13,7 +13,7 @@ function Footer() {
 					<Link to='/'>Return Policy</Link>
 				</div>
 				<div className='middle'>
-					<h4>Contact</h4>
+					<h4>Manics</h4>
 					<Link to='/'>About us</Link>
 					<Link to='/'>Contact us</Link>
 					<Link to='/'>Help</Link>
