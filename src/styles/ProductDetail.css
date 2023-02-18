@@ -1,6 +1,6 @@
 #product {
 	justify-self: center;
-	padding: 2rem;
+	padding: 2rem 2rem 0rem 2rem;
 	display: flex;
 	flex-direction: column;
 }
@@ -41,6 +41,10 @@
 
 #product .back {
 	margin-top: auto;
+}
+
+#product .back button {
+	margin: 2rem;
 }
 
 @media (max-width: 700px) {
