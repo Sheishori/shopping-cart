@@ -27,7 +27,13 @@ function Products({ set = setProductData }) {
 				<ul>
 					{products.map((item: Product) => (
 						<li key={item.id}>
-							<Link to={`/products/${item.id}`}>{item.title}</Link>
+							<Link to={`/products/${item.id}`}>
+								<div className='img'>
+									<img src={item.image} alt={item.title} />
+								</div>
+								<div className='name'>{item.title}</div>
+							</Link>
+							<div className='price'>${item.price}</div>
 						</li>
 					))}
 				</ul>
