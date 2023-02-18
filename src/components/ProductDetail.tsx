@@ -11,6 +11,7 @@ function ProductDetail() {
 	let product = products.find((item: Product) => item.id === productId);
 	const [productDetail, setproductDetail] = useState({});
 	const [initializing, setInitializing] = useState(true);
+	const [amount, setAmount] = useState(1);
 
 	useEffect(() => {
 		async function setProduct(product: Product | undefined, productId: number) {
@@ -23,6 +24,19 @@ function ProductDetail() {
 		setProduct(product, productId);
 		setInitializing(false);
 	}, []);
+
+	function handleChange(event: any) {
+		const newValue = Number(event.target.value);
+		setAmount(newValue);
+	}
+
+	function increment() {
+		setAmount(amount + 1);
+	}
+
+	function decrement() {
+		if (amount > 0) setAmount(amount - 1);
+	}
 
 	function init(initializing: boolean, product: any) {
 		if (initializing) {
@@ -39,9 +53,21 @@ function ProductDetail() {
 						<div className='price'>${product.price}</div>
 						<div className='amount'>
 							{' '}
-							<button className='decrement'>-</button>
-							<input type='phone' name='amount' id='amount' defaultValue={1} />
-							<button className='increment'>+</button>
+							<button className='decrement' onClick={decrement}>
+								-
+							</button>
+							<input
+								type='number'
+								name='amount'
+								id='amount'
+								pattern='[0-9]'
+								min='0'
+								value={amount}
+								onChange={handleChange}
+							/>
+							<button className='increment' onClick={increment}>
+								+
+							</button>
 						</div>
 						<button className='add'>Add to cart</button>
 					</div>
