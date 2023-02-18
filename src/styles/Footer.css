@@ -65,7 +65,7 @@ footer .copyright a {
 }
 
 #newsletter input {
-	width: 100%;
+	width: min(100%, 16rem);
 	font-size: 1rem;
 	background-color: transparent;
 	border: none;
