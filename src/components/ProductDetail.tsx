@@ -43,14 +43,7 @@ function ProductDetail() {
 		}
 	}
 
-	return (
-		<main id='product'>
-			{init(initializing, productDetail)}
-			<Link className='back' to='/products'>
-				<button>Back</button>
-			</Link>
-		</main>
-	);
+	return <main id='product'>{init(initializing, productDetail)}</main>;
 }
 
 export default ProductDetail;
