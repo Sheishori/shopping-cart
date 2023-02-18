@@ -10,6 +10,7 @@
 	background-image: url('/src/img/home.jpg');
 	background-size: cover;
 	background-position: center;
+	color: white;
 }
 
 #home .left {
