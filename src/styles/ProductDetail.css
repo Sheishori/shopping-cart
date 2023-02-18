@@ -57,5 +57,6 @@
 @media (max-width: 700px) {
 	#product .details {
 		flex-direction: column;
+		gap: 1rem;
 	}
 }
