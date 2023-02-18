@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { fetchOne } from './modules/fetchFromAPI';
 import { Product } from './state/types';
 import '../styles/ProductDetail.css';
@@ -37,6 +37,12 @@ function ProductDetail() {
 						<h3>{product.title}</h3>
 						<div className='desc'>{product.description}</div>
 						<div className='price'>${product.price}</div>
+						<div className='amount'>
+							<button className='increment'>+</button>
+							<input type='phone' name='amount' id='amount' defaultValue={1} />
+							<button className='decrement'>-</button>
+						</div>
+						<button className='add'>Add to cart</button>
 					</div>
 				</div>
 			);
