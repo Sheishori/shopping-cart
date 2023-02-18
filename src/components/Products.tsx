@@ -28,11 +28,11 @@ function Products({ set = setProductData }) {
 					{products.map((item: Product) => (
 						<li key={item.id}>
 							<Link to={`/products/${item.id}`}>
-								<div className='img'>
-									<img src={item.image} alt={item.title} />
-								</div>
-								<div className='name'>{item.title}</div>
+								<img src={item.image} alt={item.title} />
 							</Link>
+							<div className='name'>
+								<Link to={`/products/${item.id}`}>{item.title}</Link>
+							</div>
 							<div className='price'>${item.price}</div>
 						</li>
 					))}
