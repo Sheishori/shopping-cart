@@ -7,6 +7,14 @@ function Cart() {
 	const cartContents = useSelector((state: any) => state.cart);
 	const [total, setTotal] = useState(0);
 
+	useEffect(() => {
+		const sum = cartContents.reduce(
+			(sum: number, item: any) => sum + item.price * item.quantity,
+			0
+		);
+		setTotal(sum);
+	}, [cartContents]);
+
 	function init() {
 		if (cartContents.length === 0) {
 			return <div role='dialog'>Your cart is empty!</div>;
@@ -35,7 +43,7 @@ function Cart() {
 						</ul>
 						<div className='right'>
 							<div className='total'>
-								Total: <div className='totalPrice'>{total}</div>
+								Total: <div className='totalPrice'>${total}</div>
 							</div>
 							<button id='checkout'>Checkout</button>
 						</div>
