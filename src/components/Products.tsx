@@ -26,7 +26,9 @@ function Products({ fetch = fetchAll }) {
 				}
 			}
 		}
-		setProducts();
+		if (products.length !== 0) {
+			setInitializing(false);
+		} else setProducts();
 	}, []);
 
 	function init(products: []) {
