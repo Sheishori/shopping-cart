@@ -11,7 +11,7 @@ function Cart() {
 			return <div role='dialog'>Your cart is empty!</div>;
 		} else {
 			return (
-				<div>
+				<div className='cartInfo'>
 					<h2>Your cart:</h2>
 					<div className='contents'>
 						<ul className='left'>

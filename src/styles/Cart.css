@@ -7,6 +7,10 @@
 	padding: 2rem;
 }
 
+#cart .cartInfo {
+	width: 100%;
+}
+
 #cart h2 {
 	text-align: start;
 	margin-bottom: 1rem;
