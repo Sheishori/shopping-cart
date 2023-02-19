@@ -5,6 +5,7 @@ import UserEvent from '@testing-library/user-event';
 import Cart from '../components/Cart';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 describe('Cart component', () => {
 	it('notifies if the cart is empty', () => {
@@ -12,7 +13,11 @@ describe('Cart component', () => {
 		const store = mockStore({ cart: [] });
 
 		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
-			return <Provider store={store}>{children}</Provider>;
+			return (
+				<Provider store={store}>
+					<BrowserRouter>{children}</BrowserRouter>
+				</Provider>
+			);
 		};
 
 		render(<Cart />, { wrapper: providers });
@@ -33,7 +38,11 @@ describe('Cart component', () => {
 		});
 
 		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
-			return <Provider store={store}>{children}</Provider>;
+			return (
+				<Provider store={store}>
+					<BrowserRouter>{children}</BrowserRouter>
+				</Provider>
+			);
 		};
 
 		render(<Cart />, { wrapper: providers });
@@ -55,7 +64,11 @@ describe('Cart component', () => {
 		});
 
 		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
-			return <Provider store={store}>{children}</Provider>;
+			return (
+				<Provider store={store}>
+					<BrowserRouter>{children}</BrowserRouter>
+				</Provider>
+			);
 		};
 
 		render(<Cart />, { wrapper: providers });
