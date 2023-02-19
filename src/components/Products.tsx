@@ -1,28 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchAll } from './modules/fetchFromAPI';
 import { setProductData } from './state/actions';
 import { Product } from './state/types';
 import '../styles/Products.css';
 
-function Products({ set = setProductData }) {
+function Products() {
 	const dispatch = useDispatch();
 	const products = useSelector((state: { products: [] }) => state.products);
 	const [initializing, setInitializing] = useState(true);
+	const [error, setError] = useState(false);
 
 	useEffect(() => {
 		async function setProducts() {
-			const productsAction = await set();
-			dispatch(productsAction);
+			const data = await fetchAll();
+			if (data === 'error') {
+				setError(true);
+			}
+			if (data !== 'error') {
+				const productsAction = setProductData(data);
+				dispatch(productsAction);
+				setInitializing(false);
+			}
 		}
 		setProducts();
-		setInitializing(false);
 	}, []);
 
-	function init(initializing: boolean, products: []) {
-		if (initializing) {
-			return <div>Loading...</div>;
-		} else {
+	function init(products: []) {
+		if (initializing === false && error === false) {
 			return (
 				<ul>
 					{products.map((item: Product) => (
@@ -39,9 +45,11 @@ function Products({ set = setProductData }) {
 				</ul>
 			);
 		}
+		if (error) return <div>{error}</div>;
+		else return <div>Loading...</div>;
 	}
 
-	return <main id='products'>{init(initializing, products)}</main>;
+	return <main id='products'>{init(products)}</main>;
 }
 
 export default Products;
