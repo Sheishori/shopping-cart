@@ -9,7 +9,7 @@ import configureStore from 'redux-mock-store';
 describe('Cart component', () => {
 	it('notifies if the cart is empty', () => {
 		const mockStore = configureStore();
-		const store = mockStore({ products: [] });
+		const store = mockStore({ cart: [] });
 
 		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
 			return <Provider store={store}>{children}</Provider>;
@@ -24,10 +24,9 @@ describe('Cart component', () => {
 	it("doesn't show 'empty' notification if cart has items", () => {
 		const mockStore = configureStore();
 		const store = mockStore({
-			products: [
+			cart: [
 				{
 					id: '1',
-					title: 'cotton shirt ',
 					quantity: 1,
 				},
 			],

@@ -10,21 +10,27 @@ function Cart() {
 		console.log(cartContents);
 	}, []);
 
-	return (
-		<main id='cart'>
-			<h3>Your cart:</h3>
-			<div className='contents'>
-				<div className='left'>
-					<p role='dialog'>Your cart is empty!</p>
+	function init() {
+		if (cartContents.length === 0) {
+			return <div role='dialog'>Your cart is empty!</div>;
+		} else {
+			return (
+				<div>
+					<h3>Your cart:</h3>
+					<div className='contents'>
+						<div className='left'>{}</div>
+						<div className='right'>
+							<p>Total:</p>
+							<button id='checkout'>Checkout</button>
+						</div>
+					</div>
+					<button className='back'>Go back</button>
 				</div>
-				<div className='right'>
-					<p>Total:</p>
-					<button id='checkout'>Checkout</button>
-				</div>
-			</div>
-			<button className='back'>Go back</button>
-		</main>
-	);
+			);
+		}
+	}
+
+	return <main id='cart'>{init()}</main>;
 }
 
 export default Cart;
