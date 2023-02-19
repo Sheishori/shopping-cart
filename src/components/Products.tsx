@@ -18,8 +18,7 @@ function Products({ fetch = fetchAll }) {
 				const data = await fetch();
 				if (data === 'error') {
 					setError(true);
-				}
-				if (data !== 'error') {
+				} else {
 					const productsAction = setProductData(data);
 					dispatch(productsAction);
 					setInitializing(false);
@@ -49,8 +48,8 @@ function Products({ fetch = fetchAll }) {
 				</ul>
 			);
 		}
-		if (error) return <div>{error}</div>;
-		else return <div>Loading...</div>;
+		if (error) return <div role='dialog'>Error! Please refresh try again</div>;
+		else return <div role='dialog'>Loading...</div>;
 	}
 
 	return <main id='products'>{init(products)}</main>;

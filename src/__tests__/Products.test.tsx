@@ -5,8 +5,25 @@ import UserEvent from '@testing-library/user-event';
 import Products from '../components/Products';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import { act } from 'react-dom/test-utils';
 
 describe('Products component', () => {
+	it('renders a loading div when initializing', async () => {
+		const mockStore = configureStore();
+		const store = mockStore({ products: [] });
+		async function fetch() {
+			return;
+		}
+
+		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
+			return <Provider store={store}>{children}</Provider>;
+		};
+		render(<Products fetch={fetch} />, { wrapper: providers });
+		expect((await screen.findByRole('dialog')).textContent).toMatch(
+			'Loading...'
+		);
+	});
+
 	it('renders a products list', async () => {
 		const mockStore = configureStore();
 		const store = mockStore({ products: [] });
