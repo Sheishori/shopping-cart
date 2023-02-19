@@ -17,11 +17,13 @@ function Cart() {
 						<ul className='left'>
 							{cartContents.map((item: any) => (
 								<li key={item.id}>
-									<div className='img'>
+									<Link to={`/products/${item.id}`}>
 										<img src={item.image} alt={item.title} />
-									</div>
+									</Link>
 									<div className='info'>
-										<div className='title'>{item.title}</div>
+										<div className='title'>
+											<Link to={`/products/${item.id}`}>{item.title}</Link>
+										</div>
 										<div className='price'>${item.price}</div>
 									</div>
 									<div className='quantity'>
