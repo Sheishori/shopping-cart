@@ -5,8 +5,15 @@ import UserEvent from '@testing-library/user-event';
 import * as actions from '../components/state/actions';
 import { act } from 'react-dom/test-utils';
 
-describe('setProducts module', () => {
-	it('returns an action if correctly fetched data', async () => {
+describe('actions module', () => {
+	it('setProducts returns an action if correctly fetched data', () => {
+		const data = [
+			{
+				id: '61ab420c0f34753bcedfa787',
+				title: 'special cotton shirt for men',
+			},
+		];
+
 		const expected = {
 			type: 'setProducts',
 			productData: expect.arrayContaining([
@@ -16,17 +23,6 @@ describe('setProducts module', () => {
 			]),
 		};
 
-		async function fetch() {
-			return [
-				{
-					id: '61ab420c0f34753bcedfa787',
-					title: 'special cotton shirt for men',
-				},
-			];
-		}
-
-		return actions.setProductData(fetch).then((data) => {
-			expect(data).toEqual(expected);
-		});
+		expect(actions.setProductData(data)).toEqual(expected);
 	});
 });
