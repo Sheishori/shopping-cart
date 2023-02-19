@@ -13,7 +13,7 @@ function Cart() {
 				<div>
 					<h3>Your cart:</h3>
 					<div className='contents'>
-						<ul data-testid='products' className='left'>
+						<ul className='left'>
 							{cartContents.map((item: any) => (
 								<li key={item.id}>
 									<img src={item.image} alt={item.title} />

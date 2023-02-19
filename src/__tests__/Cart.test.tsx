@@ -59,6 +59,6 @@ describe('Cart component', () => {
 		};
 
 		render(<Cart />, { wrapper: providers });
-		expect(screen.getByTestId('products').textContent).toMatch(/T-Shirt/);
+		expect(screen.getByRole('list').textContent).toMatch(/T-Shirt/);
 	});
 });
