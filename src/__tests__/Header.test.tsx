@@ -8,7 +8,7 @@ import Header from '../components/Header';
 describe('Header component', () => {
 	it('renders a heading', () => {
 		render(<Header />, { wrapper: MemoryRouter });
-		expect(screen.getByRole('heading').textContent).toMatch('Store');
+		expect(screen.getByRole('heading').textContent).toMatch('Manics');
 	});
 
 	it('renders a nav bar', () => {
