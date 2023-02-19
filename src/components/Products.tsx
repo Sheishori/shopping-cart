@@ -6,7 +6,7 @@ import { setProductData } from './state/actions';
 import { Product } from './state/types';
 import '../styles/Products.css';
 
-function Products() {
+function Products({ fetch = fetchAll }) {
 	const dispatch = useDispatch();
 	const products = useSelector((state: { products: [] }) => state.products);
 	const [initializing, setInitializing] = useState(true);
@@ -14,14 +14,16 @@ function Products() {
 
 	useEffect(() => {
 		async function setProducts() {
-			const data = await fetchAll();
-			if (data === 'error') {
-				setError(true);
-			}
-			if (data !== 'error') {
-				const productsAction = setProductData(data);
-				dispatch(productsAction);
-				setInitializing(false);
+			if (products.length === 0) {
+				const data = await fetch();
+				if (data === 'error') {
+					setError(true);
+				}
+				if (data !== 'error') {
+					const productsAction = setProductData(data);
+					dispatch(productsAction);
+					setInitializing(false);
+				}
 			}
 		}
 		setProducts();
