@@ -19,5 +19,6 @@ export async function fetchOne(id: number) {
 		return fetchProduct;
 	} catch (error) {
 		console.log(error);
+		return 'error';
 	}
 }

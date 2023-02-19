@@ -13,15 +13,24 @@ function ProductDetail() {
 	let product = products.find((item: Product) => item.id === productId);
 	const [productDetail, setproductDetail] = useState({});
 	const [initializing, setInitializing] = useState(true);
+	const [error, setError] = useState(false);
+
 	const [amount, setAmount] = useState(1);
 
 	useEffect(() => {
-		async function setProduct(product: Product | undefined, productId: number) {
+		async function setProduct(
+			product: Product | undefined | string,
+			productId: number
+		) {
 			if (product === undefined) {
 				const fetch: Product = await fetchOne(productId);
 				product = fetch;
 			}
-			setproductDetail(product);
+			if (product === 'error') {
+				setError(true);
+			} else {
+				setproductDetail(product);
+			}
 		}
 		setProduct(product, productId);
 		setInitializing(false);
@@ -46,10 +55,8 @@ function ProductDetail() {
 		dispatch(cartItem);
 	}
 
-	function init(initializing: boolean, product: any) {
-		if (initializing) {
-			return <div>Loading...</div>;
-		} else {
+	function init(product: any) {
+		if (initializing === false && error === false) {
 			return (
 				<div className='details'>
 					<div className='image'>
@@ -84,9 +91,11 @@ function ProductDetail() {
 				</div>
 			);
 		}
+		if (error) return <div role='dialog'>Error! Please refresh try again</div>;
+		else return <div role='dialog'>Loading...</div>;
 	}
 
-	return <main id='product'>{init(initializing, productDetail)}</main>;
+	return <main id='product'>{init(productDetail)}</main>;
 }
 
 export default ProductDetail;
