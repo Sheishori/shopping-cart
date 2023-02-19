@@ -54,6 +54,10 @@
 	height: 3rem;
 }
 
+#product a.cartLink {
+	display: contents;
+}
+
 @media (max-width: 700px) {
 	#product .details {
 		flex-direction: column;

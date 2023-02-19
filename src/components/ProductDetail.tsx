@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchOne } from './modules/fetchFromAPI';
 import { Product } from './state/types';
 import { addProductToCart } from './state/actions';
@@ -14,6 +14,7 @@ function ProductDetail() {
 	const [productDetail, setproductDetail] = useState({});
 	const [initializing, setInitializing] = useState(true);
 	const [error, setError] = useState(false);
+	const [toCart, setToCart] = useState(false);
 
 	const [amount, setAmount] = useState(1);
 
@@ -53,6 +54,17 @@ function ProductDetail() {
 	function addToCart() {
 		const cartItem = addProductToCart(productDetail, amount);
 		dispatch(cartItem);
+		setToCart(true);
+	}
+
+	function showToCart() {
+		if (toCart)
+			return (
+				<Link className='cartLink' to='/cart'>
+					<button>Go to cart</button>
+				</Link>
+			);
+		else return;
 	}
 
 	function init(product: any) {
@@ -87,6 +99,7 @@ function ProductDetail() {
 						<button className='add' onClick={addToCart}>
 							Add to cart
 						</button>
+						{showToCart()}
 					</div>
 				</div>
 			);
