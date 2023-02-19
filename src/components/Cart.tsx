@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../styles/Cart.css';
 
 function Cart() {
@@ -42,7 +43,9 @@ function Cart() {
 	return (
 		<main id='cart'>
 			{init()}
-			<button className='back'>Go back</button>
+			<Link className='back-link' to='/products'>
+				<button className='back'>Go back</button>
+			</Link>
 		</main>
 	);
 }

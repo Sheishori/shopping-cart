@@ -60,6 +60,10 @@
 	margin-bottom: 0.5rem;
 }
 
+#cart a.back-link {
+	display: contents;
+}
+
 #cart .back {
 	width: 10rem;
 	margin-top: auto;
