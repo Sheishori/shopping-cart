@@ -4,9 +4,10 @@ import '@testing-library/jest-dom';
 import UserEvent from '@testing-library/user-event';
 import * as actions from '../components/state/actions';
 import { act } from 'react-dom/test-utils';
+import { ADD_TO_CART, SET_PRODUCTS } from '../components/state/actionTypes';
 
 describe('actions module', () => {
-	it('setProducts returns an action if correctly fetched data', () => {
+	it('setProductData returns an action', () => {
 		const data = [
 			{
 				id: '61ab420c0f34753bcedfa787',
@@ -15,7 +16,7 @@ describe('actions module', () => {
 		];
 
 		const expected = {
-			type: 'setProducts',
+			type: SET_PRODUCTS,
 			productData: expect.arrayContaining([
 				expect.objectContaining({
 					title: 'special cotton shirt for men',
@@ -24,5 +25,27 @@ describe('actions module', () => {
 		};
 
 		expect(actions.setProductData(data)).toEqual(expected);
+	});
+
+	it('addProductToCart returns an action', () => {
+		const data = {
+			id: 1,
+			title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+			price: 109.95,
+			image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+		};
+
+		const expected = {
+			type: ADD_TO_CART,
+			payload: {
+				id: 1,
+				title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+				price: 109.95,
+				quantity: 1,
+				image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+			},
+		};
+
+		expect(actions.addProductToCart(data, 1)).toEqual(expected);
 	});
 });

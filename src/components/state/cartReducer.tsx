@@ -7,7 +7,10 @@ export default function cartReducer(state: any = [], action: any) {
 				...state,
 				{
 					id: action.payload.id,
+					title: action.payload.title,
 					quantity: action.payload.id,
+					price: action.payload.price,
+					image: action.payload.image,
 				},
 			];
 		default:
