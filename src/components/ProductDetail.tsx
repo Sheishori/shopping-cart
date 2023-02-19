@@ -15,7 +15,6 @@ function ProductDetail() {
 	const [initializing, setInitializing] = useState(true);
 	const [error, setError] = useState(false);
 	const [toCart, setToCart] = useState(false);
-
 	const [amount, setAmount] = useState(1);
 
 	useEffect(() => {
