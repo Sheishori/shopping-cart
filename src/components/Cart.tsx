@@ -11,15 +11,21 @@ function Cart() {
 		} else {
 			return (
 				<div>
-					<h3>Your cart:</h3>
+					<h2>Your cart:</h2>
 					<div className='contents'>
 						<ul className='left'>
 							{cartContents.map((item: any) => (
 								<li key={item.id}>
-									<img src={item.image} alt={item.title} />
-									<div className='name'>{item.title}</div>
-									<div className='price'>${item.price}</div>
-									<div className='quantity'>{item.quantity}</div>
+									<div className='img'>
+										<img src={item.image} alt={item.title} />
+									</div>
+									<div className='info'>
+										<div className='title'>{item.title}</div>
+										<div className='price'>${item.price}</div>
+									</div>
+									<div className='quantity'>
+										Qty: <div>{item.quantity}</div>
+									</div>
 								</li>
 							))}
 						</ul>
@@ -28,13 +34,17 @@ function Cart() {
 							<button id='checkout'>Checkout</button>
 						</div>
 					</div>
-					<button className='back'>Go back</button>
 				</div>
 			);
 		}
 	}
 
-	return <main id='cart'>{init()}</main>;
+	return (
+		<main id='cart'>
+			{init()}
+			<button className='back'>Go back</button>
+		</main>
+	);
 }
 
 export default Cart;
