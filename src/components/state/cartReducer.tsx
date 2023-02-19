@@ -27,8 +27,13 @@ export default function cartReducer(state: any = [], action: any) {
 					image: action.payload.image,
 				},
 			];
+
 		case UPDATE_QUANTITY:
 			return adjustQty(state, action);
+
+		case REMOVE_FROM_CART:
+			return state.fiter((item: any) => item.id !== action.payload.id);
+
 		default:
 			return state;
 	}
