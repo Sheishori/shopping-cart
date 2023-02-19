@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/Cart.css';
 
 function Cart() {
 	const cartContents = useSelector((state: any) => state.cart);
+	const [total, setTotal] = useState(0);
 
 	function init() {
 		if (cartContents.length === 0) {
@@ -33,7 +34,9 @@ function Cart() {
 							))}
 						</ul>
 						<div className='right'>
-							<p>Total:</p>
+							<div className='total'>
+								Total: <div className='totalPrice'>{total}</div>
+							</div>
 							<button id='checkout'>Checkout</button>
 						</div>
 					</div>
