@@ -39,4 +39,26 @@ describe('Cart component', () => {
 		render(<Cart />, { wrapper: providers });
 		expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 	});
+
+	it('displays cart contents', () => {
+		const mockStore = configureStore();
+		const store = mockStore({
+			cart: [
+				{
+					id: 1,
+					title: 'T-Shirt',
+					quantity: 1,
+					price: 10,
+					image: '',
+				},
+			],
+		});
+
+		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
+			return <Provider store={store}>{children}</Provider>;
+		};
+
+		render(<Cart />, { wrapper: providers });
+		expect(screen.getByTestId('products').textContent).toMatch(/T-Shirt/);
+	});
 });
