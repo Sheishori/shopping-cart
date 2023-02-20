@@ -1,8 +1,8 @@
 export async function fetchAll() {
 	try {
-		const fetchProducts = await fetch('https://fakestoreapi.com/products').then(
-			(response) => response.json()
-		);
+		const fetchProducts: [] = await fetch(
+			'https://fakestoreapi.com/products'
+		).then((response) => response.json());
 		return fetchProducts;
 	} catch (error) {
 		console.log(error);

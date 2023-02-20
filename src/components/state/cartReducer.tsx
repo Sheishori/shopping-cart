@@ -12,7 +12,7 @@ function addToExisting(state: any, action: any) {
 	});
 }
 
-export default function cartReducer(state: any = [], action: any) {
+export default function cartReducer(state = [], action: any) {
 	switch (action.type) {
 		case ADD_TO_CART:
 			if (state.find((item: any) => item.id === action.payload.id))

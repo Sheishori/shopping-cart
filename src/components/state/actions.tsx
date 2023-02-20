@@ -6,7 +6,7 @@ import {
 } from './actionTypes';
 import { Product } from './types';
 
-export function setProductData(productData: any) {
+export function setProductData(productData: []) {
 	const setProducts = {
 		type: SET_PRODUCTS,
 		productData,
