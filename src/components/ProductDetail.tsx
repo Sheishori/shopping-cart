@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchOne } from './modules/fetchFromAPI';
 import { Product } from './state/types';
+import { RootState } from './state/store';
 import { addProductToCart } from './state/actions';
 import '../styles/ProductDetail.css';
 
 function ProductDetail() {
 	const dispatch = useDispatch();
-	const products = useSelector((state: { products: [] }) => state.products);
+	const products = useSelector((state: RootState) => state.products);
 	const productId = Number(useParams().id);
 	let product = products.find((item: Product) => item.id === productId);
 	const [productDetail, setproductDetail] = useState({});

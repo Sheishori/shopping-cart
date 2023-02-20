@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import { fetchAll } from './modules/fetchFromAPI';
 import { setProductData } from './state/actions';
 import { Product } from './state/types';
+import { RootState } from './state/store';
 import '../styles/Products.css';
 
 function Products({ fetch = fetchAll }) {
 	const dispatch = useDispatch();
-	const products = useSelector((state: { products: [] }) => state.products);
+	const products = useSelector((state: RootState) => state.products);
 	const [initializing, setInitializing] = useState(true);
 	const [error, setError] = useState(false);
 

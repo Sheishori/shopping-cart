@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import '../styles/Cart.css';
 import { removeFromCart, updateQuantityInCart } from './state/actions';
+import { RootState } from './state/store';
+import '../styles/Cart.css';
 
 function Cart() {
 	const dispatch = useDispatch();
-	const cartContents = useSelector((state: any) => state.cart);
+	const cartContents = useSelector((state: RootState) => state.cart);
 	const [total, setTotal] = useState(0);
 
 	useEffect(() => {

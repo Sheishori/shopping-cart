@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { RootState } from './state/store';
 import '../styles/CartIndicator.css';
 
 function CartIndicator() {
-	const cart = useSelector((state: any) => state.cart);
+	const cart = useSelector((state: RootState) => state.cart);
 	const cartContents = cart.reduce(
 		(sum: number, item: any) => sum + item.quantity,
 		0
