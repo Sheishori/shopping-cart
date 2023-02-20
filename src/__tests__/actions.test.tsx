@@ -1,9 +1,6 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import UserEvent from '@testing-library/user-event';
 import * as actions from '../components/state/actions';
-import { act } from 'react-dom/test-utils';
 import { ADD_TO_CART, SET_PRODUCTS } from '../components/state/actionTypes';
 
 describe('actions module', () => {

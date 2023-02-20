@@ -1,11 +1,9 @@
-import React, { ReactComponentElement, ReactFragment, ReactNode } from 'react';
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import UserEvent from '@testing-library/user-event';
 import Products from '../components/Products';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { act } from 'react-dom/test-utils';
 
 describe('Products component', () => {
 	it('renders a loading div when initializing', async () => {
