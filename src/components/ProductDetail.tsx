@@ -12,7 +12,7 @@ function ProductDetail() {
 	const products = useSelector((state: RootState) => state.products);
 	const productId = Number(useParams().id);
 	let product = products.find((item: Product) => item.id === productId);
-	const [productDetail, setproductDetail] = useState({});
+	const [productDetail, setproductDetail] = useState({} as Product);
 	const [initializing, setInitializing] = useState(true);
 	const [error, setError] = useState(false);
 	const [toCart, setToCart] = useState(false);
@@ -27,7 +27,7 @@ function ProductDetail() {
 				const fetch: Product = await fetchOne(productId);
 				product = fetch;
 			}
-			if (product === 'error') {
+			if (typeof product === 'string') {
 				setError(true);
 			} else {
 				setproductDetail(product);
@@ -67,7 +67,7 @@ function ProductDetail() {
 		else return;
 	}
 
-	function init(product: any) {
+	function init(product: Product) {
 		if (initializing === false && error === false) {
 			return (
 				<div className='details'>

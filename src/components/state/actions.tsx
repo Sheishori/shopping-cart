@@ -15,7 +15,7 @@ export function setProductData(productData: any) {
 	return setProducts;
 }
 
-export function addProductToCart(product: any, quantity: number) {
+export function addProductToCart(product: Product, quantity: number) {
 	const addProduct = {
 		type: ADD_TO_CART,
 		payload: {
