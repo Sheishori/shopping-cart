@@ -52,9 +52,9 @@ function Cart() {
 										<img src={item.image} alt={item.title} />
 									</Link>
 									<div className='info'>
-										<div className='title'>
-											<Link to={`/products/${item.id}`}>{item.title}</Link>
-										</div>
+										<Link to={`/products/${item.id}`} className='title'>
+											{item.title}
+										</Link>
 										<div className='price'>
 											${(Math.round(item.price * 100) / 100).toFixed(2)}
 										</div>
@@ -62,12 +62,7 @@ function Cart() {
 									<div className='quantity'>
 										<label htmlFor={'quantity-of-' + item.title}>Qty:</label>
 										<div className='qty-input'>
-											<button
-												className='decrement'
-												onClick={() => decrement(item.id)}
-											>
-												-
-											</button>
+											<button onClick={() => decrement(item.id)}>-</button>
 											<input
 												type='text'
 												name={'quantity-of-' + item.title}
@@ -77,12 +72,7 @@ function Cart() {
 												value={item.quantity}
 												onChange={(event) => handleChange(event, item.id)}
 											/>
-											<button
-												className='increment'
-												onClick={() => increment(item.id)}
-											>
-												+
-											</button>
+											<button onClick={() => increment(item.id)}>+</button>
 										</div>
 									</div>
 									<button
@@ -95,11 +85,9 @@ function Cart() {
 							))}
 						</ul>
 						<div className='right'>
-							<div className='total'>
-								Total:{' '}
-								<div data-testid='total' className='totalPrice'>
-									${(Math.round(total * 100) / 100).toFixed(2)}
-								</div>
+							<p>Total:</p>
+							<div data-testid='total' className='total'>
+								${(Math.round(total * 100) / 100).toFixed(2)}
 							</div>
 							<button id='checkout'>Checkout</button>
 						</div>

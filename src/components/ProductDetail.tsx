@@ -80,10 +80,7 @@ function ProductDetail() {
 							${(Math.round(product.price * 100) / 100).toFixed(2)}
 						</div>
 						<div className='amount'>
-							{' '}
-							<button className='decrement' onClick={decrement}>
-								-
-							</button>
+							<button onClick={decrement}>-</button>
 							<input
 								type='text'
 								name='amount'
@@ -93,9 +90,7 @@ function ProductDetail() {
 								value={amount}
 								onChange={handleChange}
 							/>
-							<button className='increment' onClick={increment}>
-								+
-							</button>
+							<button onClick={increment}>+</button>
 						</div>
 						<button className='add' onClick={addToCart}>
 							Add to cart
