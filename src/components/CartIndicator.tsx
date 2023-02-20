@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from './state/store';
+import { CartItem } from './state/types';
 import '../styles/CartIndicator.css';
 
 function CartIndicator() {
 	const cart = useSelector((state: RootState) => state.cart);
 	const cartContents = cart.reduce(
-		(sum: number, item: any) => sum + item.quantity,
+		(sum: number, item: CartItem) => sum + item.quantity,
 		0
 	);
 
