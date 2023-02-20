@@ -39,7 +39,7 @@ function Products({ fetch = fetchAll }) {
 							<Link to={`/products/${item.id}`}>
 								<img src={item.image} alt={item.title} />
 							</Link>
-							<div className='name'>
+							<div className='title'>
 								<Link to={`/products/${item.id}`}>{item.title}</Link>
 							</div>
 							<div className='price'>

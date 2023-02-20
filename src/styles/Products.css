@@ -21,17 +21,17 @@
 	object-fit: contain;
 	margin-bottom: 1rem;
 }
-#products .name {
+#products .title {
 	margin-bottom: 0.5rem;
 }
 
-#products .name a {
+#products .title a {
 	color: black;
 	text-decoration: none;
 	font-weight: 300;
 }
 
-#products .name a:hover {
+#products .title a:hover {
 	color: black;
 	text-decoration: underline;
 }
