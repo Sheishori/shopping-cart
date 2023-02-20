@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Cart from '../components/Cart';
+import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { BrowserRouter } from 'react-router-dom';
+import Cart from '../components/Cart';
 
 describe('Cart component', () => {
 	it('notifies if the cart is empty', () => {
@@ -14,7 +14,7 @@ describe('Cart component', () => {
 		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
 			return (
 				<Provider store={store}>
-					<BrowserRouter>{children}</BrowserRouter>
+					<MemoryRouter>{children}</MemoryRouter>
 				</Provider>
 			);
 		};
@@ -39,7 +39,7 @@ describe('Cart component', () => {
 		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
 			return (
 				<Provider store={store}>
-					<BrowserRouter>{children}</BrowserRouter>
+					<MemoryRouter>{children}</MemoryRouter>
 				</Provider>
 			);
 		};
@@ -65,7 +65,7 @@ describe('Cart component', () => {
 		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
 			return (
 				<Provider store={store}>
-					<BrowserRouter>{children}</BrowserRouter>
+					<MemoryRouter>{children}</MemoryRouter>
 				</Provider>
 			);
 		};
@@ -98,7 +98,7 @@ describe('Cart component', () => {
 		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
 			return (
 				<Provider store={store}>
-					<BrowserRouter>{children}</BrowserRouter>
+					<MemoryRouter>{children}</MemoryRouter>
 				</Provider>
 			);
 		};
@@ -131,7 +131,7 @@ describe('Cart component', () => {
 		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
 			return (
 				<Provider store={store}>
-					<BrowserRouter>{children}</BrowserRouter>
+					<MemoryRouter>{children}</MemoryRouter>
 				</Provider>
 			);
 		};

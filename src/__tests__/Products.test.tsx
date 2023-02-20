@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Products from '../components/Products';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import Products from '../components/Products';
 
 describe('Products component', () => {
 	it('renders a loading div when initializing', async () => {
