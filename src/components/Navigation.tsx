@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CartIndicator from './CartIndicator';
 import '../styles/Navigation.css';
 
 function Navigation() {
@@ -13,7 +14,9 @@ function Navigation() {
 					<li>Products</li>
 				</Link>
 				<Link to='/cart'>
-					<li>Cart</li>
+					<li>
+						<CartIndicator />
+					</li>
 				</Link>
 			</ul>
 		</div>

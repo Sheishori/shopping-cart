@@ -1,0 +1,25 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+import '../styles/CartIndicator.css';
+
+function CartIndicator() {
+	const cart = useSelector((state: any) => state.cart);
+	const cartContents = cart.reduce(
+		(sum: number, item: any) => sum + item.quantity,
+		0
+	);
+
+	function showIndicator() {
+		if (cartContents) return <div className='indicator'>{cartContents}</div>;
+		else return;
+	}
+
+	return (
+		<div id='cart-indicator'>
+			<span className='material-symbols-sharp'>shopping_bag</span>
+			{showIndicator()}
+		</div>
+	);
+}
+
+export default CartIndicator;

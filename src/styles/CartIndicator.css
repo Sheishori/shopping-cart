@@ -1,0 +1,19 @@
+#cart-indicator {
+	position: relative;
+}
+
+#cart-indicator .material-symbols-sharp {
+	font-size: 2.5rem;
+	font-variation-settings: 'wght' 250;
+}
+
+#cart-indicator .indicator {
+	position: absolute;
+	width: 1.5rem;
+	display: flex;
+	justify-content: center;
+	top: 31%;
+	right: 19%;
+	font-size: 1rem;
+	font-size: 0.9rem;
+}
