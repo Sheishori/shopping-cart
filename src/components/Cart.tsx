@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeFromCart, updateQuantityInCart } from './state/actions';
+import { Product, CartItem } from './state/types';
 import { RootState } from './state/store';
 import '../styles/Cart.css';
 
@@ -12,7 +13,7 @@ function Cart() {
 
 	useEffect(() => {
 		const sum = cartContents.reduce(
-			(sum: number, item: any) => sum + item.price * item.quantity,
+			(sum: number, item: CartItem) => sum + item.price * item.quantity,
 			0
 		);
 		setTotal(sum);
@@ -28,12 +29,14 @@ function Cart() {
 	}
 
 	function increment(id: number) {
-		const quantity = cartContents.find((item: any) => item.id === id).quantity;
+		const product = cartContents.find((item: Product) => item.id === id);
+		const quantity = product.quantity;
 		dispatch(updateQuantityInCart(id, quantity + 1));
 	}
 
 	function decrement(id: number) {
-		const quantity = cartContents.find((item: any) => item.id === id).quantity;
+		const product = cartContents.find((item: Product) => item.id === id);
+		const quantity = product.quantity;
 		if (quantity > 1) dispatch(updateQuantityInCart(id, quantity - 1));
 	}
 
@@ -50,7 +53,7 @@ function Cart() {
 					<h2>Your cart:</h2>
 					<div className='contents'>
 						<ul className='left'>
-							{cartContents.map((item: any) => (
+							{cartContents.map((item: CartItem) => (
 								<li key={item.id}>
 									<Link to={`/products/${item.id}`}>
 										<img src={item.image} alt={item.title} />
