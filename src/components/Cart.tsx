@@ -51,7 +51,9 @@ function Cart() {
 										<div className='title'>
 											<Link to={`/products/${item.id}`}>{item.title}</Link>
 										</div>
-										<div className='price'>${item.price}</div>
+										<div className='price'>
+											${(Math.round(item.price * 100) / 100).toFixed(2)}
+										</div>
 									</div>
 									<div className='quantity'>
 										<label htmlFor={'quantity-of-' + item.title}>Qty:</label>
@@ -84,7 +86,10 @@ function Cart() {
 						</ul>
 						<div className='right'>
 							<div className='total'>
-								Total: <div className='totalPrice'>${total}</div>
+								Total:{' '}
+								<div className='totalPrice'>
+									${(Math.round(total * 100) / 100).toFixed(2)}
+								</div>
 							</div>
 							<button id='checkout'>Checkout</button>
 						</div>

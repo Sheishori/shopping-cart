@@ -42,7 +42,9 @@ function Products({ fetch = fetchAll }) {
 							<div className='name'>
 								<Link to={`/products/${item.id}`}>{item.title}</Link>
 							</div>
-							<div className='price'>${item.price}</div>
+							<div className='price'>
+								${(Math.round(item.price * 100) / 100).toFixed(2)}
+							</div>
 						</li>
 					))}
 				</ul>

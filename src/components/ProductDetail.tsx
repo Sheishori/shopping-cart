@@ -76,7 +76,9 @@ function ProductDetail() {
 					<div className='info'>
 						<h3>{product.title}</h3>
 						<div className='desc'>{product.description}</div>
-						<div className='price'>${product.price}</div>
+						<div className='price'>
+							${(Math.round(product.price * 100) / 100).toFixed(2)}
+						</div>
 						<div className='amount'>
 							{' '}
 							<button className='decrement' onClick={decrement}>
