@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeFromCart, updateQuantityInCart } from './state/actions';
-import { Product, CartItem } from './state/types';
+import { CartItem } from './state/types';
 import { RootState } from './state/store';
 import '../styles/Cart.css';
 
@@ -29,13 +29,13 @@ function Cart() {
 	}
 
 	function increment(id: number) {
-		const product = cartContents.find((item: Product) => item.id === id);
+		const product = cartContents.find((item: CartItem) => item.id === id);
 		const quantity = product.quantity;
 		dispatch(updateQuantityInCart(id, quantity + 1));
 	}
 
 	function decrement(id: number) {
-		const product = cartContents.find((item: Product) => item.id === id);
+		const product = cartContents.find((item: CartItem) => item.id === id);
 		const quantity = product.quantity;
 		if (quantity > 1) dispatch(updateQuantityInCart(id, quantity - 1));
 	}
