@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from './Navigation';
-import '../styles/Header.css';
 import { Link } from 'react-router-dom';
+import '../styles/Header.css';
 
 function Header() {
 	return (
