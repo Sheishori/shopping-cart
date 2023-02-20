@@ -30,14 +30,18 @@ function Cart() {
 
 	function increment(id: number) {
 		const product = cartContents.find((item: CartItem) => item.id === id);
-		const quantity = product.quantity;
-		dispatch(updateQuantityInCart(id, quantity + 1));
+		if (product !== undefined) {
+			const quantity = product.quantity;
+			dispatch(updateQuantityInCart(id, quantity + 1));
+		}
 	}
 
 	function decrement(id: number) {
 		const product = cartContents.find((item: CartItem) => item.id === id);
-		const quantity = product.quantity;
-		if (quantity > 1) dispatch(updateQuantityInCart(id, quantity - 1));
+		if (product !== undefined) {
+			const quantity = product.quantity;
+			dispatch(updateQuantityInCart(id, quantity - 1));
+		}
 	}
 
 	function removeProduct(id: number) {
