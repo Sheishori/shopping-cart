@@ -87,7 +87,7 @@ function Cart() {
 						<div className='right'>
 							<div className='total'>
 								Total:{' '}
-								<div className='totalPrice'>
+								<div data-testid='total' className='totalPrice'>
 									${(Math.round(total * 100) / 100).toFixed(2)}
 								</div>
 							</div>

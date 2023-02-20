@@ -74,4 +74,70 @@ describe('Cart component', () => {
 		render(<Cart />, { wrapper: providers });
 		expect(screen.getByRole('list').textContent).toMatch(/T-Shirt/);
 	});
+
+	it('calculates total (1)', () => {
+		const mockStore = configureStore();
+		const store = mockStore({
+			cart: [
+				{
+					id: 1,
+					title: 'T-Shirt',
+					quantity: 1,
+					price: 10,
+					image: '',
+				},
+				{
+					id: 2,
+					title: 'Socks',
+					quantity: 2,
+					price: 5,
+					image: '',
+				},
+			],
+		});
+
+		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
+			return (
+				<Provider store={store}>
+					<BrowserRouter>{children}</BrowserRouter>
+				</Provider>
+			);
+		};
+
+		render(<Cart />, { wrapper: providers });
+		expect(screen.getByTestId('total').textContent).toBe('$20.00');
+	});
+
+	it('calculates total (2)', () => {
+		const mockStore = configureStore();
+		const store = mockStore({
+			cart: [
+				{
+					id: 1,
+					title: 'T-Shirt',
+					quantity: 2,
+					price: 10.99,
+					image: '',
+				},
+				{
+					id: 2,
+					title: 'Socks',
+					quantity: 3,
+					price: 5.37,
+					image: '',
+				},
+			],
+		});
+
+		const providers = ({ children }: React.PropsWithChildren<unknown>) => {
+			return (
+				<Provider store={store}>
+					<BrowserRouter>{children}</BrowserRouter>
+				</Provider>
+			);
+		};
+
+		render(<Cart />, { wrapper: providers });
+		expect(screen.getByTestId('total').textContent).toBe('$38.09');
+	});
 });
