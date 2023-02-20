@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/Cart.css';
+import { updateQuantityInCart } from './state/actions';
 
 function Cart() {
+	const dispatch = useDispatch();
 	const cartContents = useSelector((state: any) => state.cart);
 	const [total, setTotal] = useState(0);
 
@@ -14,6 +16,22 @@ function Cart() {
 		);
 		setTotal(sum);
 	}, [cartContents]);
+
+	function handleChange(event: any, id: number) {
+		const newQty = Number(event.target.value);
+		if (newQty === 0) dispatch(updateQuantityInCart(id, 1));
+		if (newQty > 0) dispatch(updateQuantityInCart(id, newQty));
+	}
+
+	function increment(id: number) {
+		const quantity = cartContents.find((item: any) => item.id === id).quantity;
+		dispatch(updateQuantityInCart(id, quantity + 1));
+	}
+
+	function decrement(id: number) {
+		const quantity = cartContents.find((item: any) => item.id === id).quantity;
+		if (quantity > 1) dispatch(updateQuantityInCart(id, quantity - 1));
+	}
 
 	function init() {
 		if (cartContents.length === 0) {
@@ -36,7 +54,30 @@ function Cart() {
 										<div className='price'>${item.price}</div>
 									</div>
 									<div className='quantity'>
-										Qty: <div>{item.quantity}</div>
+										<label htmlFor={'quantity-of-' + item.title}>Qty:</label>
+										<div className='qty-input'>
+											<button
+												className='decrement'
+												onClick={() => decrement(item.id)}
+											>
+												-
+											</button>
+											<input
+												type='text'
+												name={'quantity-of-' + item.title}
+												id={'quantity-of-' + item.title}
+												pattern='[1-9]'
+												min='1'
+												value={item.quantity}
+												onChange={(event) => handleChange(event, item.id)}
+											/>
+											<button
+												className='increment'
+												onClick={() => increment(item.id)}
+											>
+												+
+											</button>
+										</div>
 									</div>
 								</li>
 							))}
