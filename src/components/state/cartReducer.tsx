@@ -1,7 +1,8 @@
 import { ADD_TO_CART, UPDATE_QUANTITY, REMOVE_FROM_CART } from './actionTypes';
+import { CartItem } from './types';
 
 function addToExisting(state: any, action: any) {
-	return state.map((item: any) => {
+	return state.map((item: CartItem) => {
 		if (item.id === action.payload.id) {
 			return {
 				...item,
@@ -15,7 +16,7 @@ function addToExisting(state: any, action: any) {
 export default function cartReducer(state = [], action: any) {
 	switch (action.type) {
 		case ADD_TO_CART:
-			if (state.find((item: any) => item.id === action.payload.id))
+			if (state.find((item: CartItem) => item.id === action.payload.id))
 				return addToExisting(state, action);
 			return [
 				...state,
@@ -29,7 +30,7 @@ export default function cartReducer(state = [], action: any) {
 			];
 
 		case UPDATE_QUANTITY:
-			return state.map((item: any) => {
+			return state.map((item: CartItem) => {
 				if (item.id === action.payload.id) {
 					return {
 						...item,
@@ -40,7 +41,7 @@ export default function cartReducer(state = [], action: any) {
 			});
 
 		case REMOVE_FROM_CART:
-			return state.filter((item: any) => item.id !== action.payload.id);
+			return state.filter((item: CartItem) => item.id !== action.payload.id);
 
 		default:
 			return state;
