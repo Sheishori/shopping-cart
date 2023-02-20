@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/Cart.css';
-import { updateQuantityInCart } from './state/actions';
+import { removeFromCart, updateQuantityInCart } from './state/actions';
 
 function Cart() {
 	const dispatch = useDispatch();
@@ -31,6 +31,10 @@ function Cart() {
 	function decrement(id: number) {
 		const quantity = cartContents.find((item: any) => item.id === id).quantity;
 		if (quantity > 1) dispatch(updateQuantityInCart(id, quantity - 1));
+	}
+
+	function removeProduct(id: number) {
+		dispatch(removeFromCart(id));
 	}
 
 	function init() {
@@ -81,6 +85,12 @@ function Cart() {
 											</button>
 										</div>
 									</div>
+									<button
+										className='remove'
+										onClick={() => removeProduct(item.id)}
+									>
+										x
+									</button>
 								</li>
 							))}
 						</ul>
