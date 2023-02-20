@@ -1,7 +1,8 @@
+import { AnyAction } from '@reduxjs/toolkit';
 import { ADD_TO_CART, UPDATE_QUANTITY, REMOVE_FROM_CART } from './actionTypes';
 import { CartItem } from './types';
 
-export default function cartReducer(state: CartItem[] = [], action: any) {
+export default function cartReducer(state: CartItem[] = [], action: AnyAction) {
 	switch (action.type) {
 		case ADD_TO_CART:
 			if (state.find((item: CartItem) => item.id === action.payload.id))
