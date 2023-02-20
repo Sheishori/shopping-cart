@@ -36,7 +36,7 @@ function ProductDetail() {
 		setInitializing(false);
 	}, []);
 
-	function handleChange(event: any) {
+	function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
 		const newValue = Number(event.target.value);
 		if (newValue === 0) setAmount(1);
 		if (newValue > 0) setAmount(newValue);

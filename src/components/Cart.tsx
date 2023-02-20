@@ -17,7 +17,10 @@ function Cart() {
 		setTotal(sum);
 	}, [cartContents]);
 
-	function handleChange(event: any, id: number) {
+	function handleChange(
+		event: React.ChangeEvent<HTMLInputElement>,
+		id: number
+	) {
 		const newQty = Number(event.target.value);
 		if (newQty === 0) dispatch(updateQuantityInCart(id, 1));
 		if (newQty > 0) dispatch(updateQuantityInCart(id, newQty));
