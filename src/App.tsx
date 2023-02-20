@@ -11,7 +11,7 @@ import './styles/App.css';
 function App() {
 	return (
 		<div id='App'>
-			<BrowserRouter>
+			<BrowserRouter basename='shopping-cart'>
 				<Header />
 				<Routes>
 					<Route path='/' element={<Home />} />
